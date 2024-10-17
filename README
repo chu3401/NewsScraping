@@ -1,0 +1,26 @@
+This code is for news scraping.
+Using google news to research and save to .csv
+
+================================================
+Running Requirements
+1. pandas
+2. BeautifulSoup
+3. googlenewsdecoder
+
+================================================
+User Guide
+
+class.NewsScraper(search_list,days_back)
+Parameter : 
+search_list (list) - keyword you wanna search.
+days_back (int) - default is 10. Number of days tracked backward.
+
+================================================
+Example : 
+
+import NewsScraper
+
+search_list = ["Tech","Geology"]
+scraper = NewsScraper(search_list)
+scraper.fetchNews()
+scraper.saveCsv() #save file
