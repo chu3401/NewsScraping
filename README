@@ -27,3 +27,6 @@ search_list = ["Tech","Geology"]
 scraper = NewsScraper(search_list)
 scraper.fetchNews()
 scraper.saveCsv() #save file
+
+CSV file
+search_time	search_key	title	link	pub_date	description	source newsUrl	content
