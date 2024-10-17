@@ -1,5 +1,8 @@
-This code is for news scraping.
-Using google news to research and save to .csv
+News Scraper Documentation
+
+Note: This project is currently unstable and not public. After test it will be released after testing.
+
+This code performs news scraping from Google News based on user-defined keywords and saves the results into a CSV file.
 
 ================================================
 Running Requirements
@@ -10,7 +13,7 @@ Running Requirements
 ================================================
 User Guide
 
-class.NewsScraper(search_list,days_back)
+Class: NewsScraper(search_list,days_back)
 Parameter : 
 search_list (list) - keyword you wanna search.
 days_back (int) - default is 10. Number of days tracked backward.
