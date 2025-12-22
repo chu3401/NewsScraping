@@ -11,37 +11,22 @@ CANDIDATE_CONTAINERS = [
     ('section', {'id': 'article_body'}),
     ('div', {'class': 'article-layout-wrapper'}),
     ('div', {'class': 'main-content'}),
-    ('div', {'class': 'textRule__content'}),
     ('main', {'id': 'article-container'}),
 ]
 
-MIN_LENGTH = 100
-
 def extract(soup: BeautifulSoup) -> str:
     try:
-        section = None
+        container = None
+
         for tag, attrs in CANDIDATE_CONTAINERS:
-            section = soup.find(tag, attrs)
-            if section:
+            container = soup.find(tag, attrs)
+            if container:
                 break
 
-        if not section:
+        if not container:
             return ""
 
-        # 1️⃣ p
-        paragraphs = section.find_all('p')
-
-        # 2️⃣ span fallback
-        if not paragraphs:
-            paragraphs = section.find_all('span')
-
-        # 3️⃣ pre fallback
-        if not paragraphs:
-            paragraphs = [
-                pre for pre in section.find_all('pre')
-                if len(pre.get_text(strip=True)) >= MIN_LENGTH
-            ]
-
+        paragraphs = container.find_all(['p','span'])
         content = ''.join(
             p.get_text(strip=True)
             for p in paragraphs

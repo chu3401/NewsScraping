@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 
 def extract(soup: BeautifulSoup) -> str:
     try:
-        main = soup.find('main', id='article-container')
+        main = soup.find('div', class_='pg-col-wrap grid-h')
         if not main:
             return ""
 
@@ -31,17 +31,3 @@ def extract(soup: BeautifulSoup) -> str:
         )
     except Exception:
         return ""
-
-"""
-if domain == 'news.cnyes.com':
-
-    # 鉅亨網
-    sections = soup.find_all('section', style='margin-top:30px')
-    content = list()
-    for section in sections:
-        p_tag = section.find('p')
-        if p_tag:
-            content.append(p_tag.getText())
-    content = ''.join(content)
-    content = content.replace('\r', ' ').replace('\n', ' ').replace(u'\xa0', ' ')
-"""

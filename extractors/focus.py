@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 
 def extract(soup: BeautifulSoup) -> str:
     try:
-        main = soup.find('main', id='article-container')
+        main = soup.find('div', class_='article-content clearfix')
         if not main:
             return ""
 

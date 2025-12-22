@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 
 def extract(soup: BeautifulSoup) -> str:
     try:
-        div = soup.find('div', class_="whitecon boxTitle boxText")
+        div = soup.find('div', class_="cke_editable font__select-content")
         if not div:
             return ""
 

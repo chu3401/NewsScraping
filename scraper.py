@@ -92,8 +92,8 @@ class NewsScraper:
         extractor = self.domain_extractors.get(domain)
 
         if not extractor:
-            print('unknow domain')
-            print("url=",news_url)
+            #print('unknow domain')
+            #print("url=",news_url)
             return "none"
         return extractor(soup)
     
